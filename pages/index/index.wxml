@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+<view class="canvasCircleBox">
+<canvas canvas-id="timingBack" class="canvasCircle "></canvas>
+<canvas canvas-id="timingCanvas" class="canvasCircle "></canvas>
+<view class="canvasText ">{{timing.text}}</view>
+</view>
+<view bindtap="bindTimingStart" class="userinfo">
+<image class="userinfo-avatar"  src="{{userInfo.avatarUrl}}" background-szie="cover"></image>
+</view>
+
+</view>
