@@ -1,5 +1,6 @@
 <view class="container log-list">
+<text class="log-item">总锻炼时间:{{total}}</text>
 <block wx:for="{{logs}}" wx:for-item="log" wx:key="*this">
-<text class="log-item">{{index + 1}}. {{log.text}}</text>
+<text class="log-item">{{log.start}}. {{log.text}}</text>
 </block>
 </view>

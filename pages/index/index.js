@@ -14,7 +14,9 @@ Page({
             timer:null,
             start:null,
             end:null
-        }
+        },
+        audioSrc: ''
+
     },
     //事件处理函数
     bindViewTap: function() {
@@ -78,6 +80,27 @@ Page({
         context.arc(110, 110, 100, 0, 2 * Math.PI, true)
         context.stroke()
         context.draw()
-    }  
-
+        this.audioCtx = wx.createAudioContext('myAudio')
+        if(this.data.audioSrc == '') {
+            //this.downMusic()
+        }
+    },
+    audioPlay: function () {
+        this.audioCtx.play()
+    },
+    downMusic: function() {
+        let that = this
+        wx.downloadFile({
+            url:'http://data3.huiyi8.com/2017/gha/04/17/1723.mp3',
+            success:function(res) {
+                console.log(res)
+                wx.playVoice({
+                    filePath:res.tempFilePath
+                })
+                    that.setData({
+                        audioSrc:res.tempFilePath
+                    })
+            }
+        })
+    }
 })

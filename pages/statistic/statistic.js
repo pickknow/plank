@@ -1,7 +1,9 @@
 const util = require('../../utils/util.js')
+const storage = require('../../utils/storage.js')
 Page({
     data:{
-        logs:[]
+        logs:[],
+        total:0
     },
     refresh: function() {
         this.setData({
@@ -9,8 +11,13 @@ Page({
                 log.start = util.formatTime(new Date(log.start))
                 log.end = util.formatTime(new Date(log.end))
                 return log
-            })
+            }),
+            total:this.totalTime()
         })
+    },
+    totalTime:() => {
+       let time = storage.settings.get('totalTime') || 0
+        return util.formatCounter(time)
     },
     onLoad: function(e) {
         this.refresh()

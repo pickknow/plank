@@ -8,5 +8,4 @@
 <view bindtap="bindTimingStart" class="userinfo">
 <image class="userinfo-avatar"  src="{{userInfo.avatarUrl}}" background-szie="cover"></image>
 </view>
-
 </view>
